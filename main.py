@@ -72,3 +72,9 @@ class SpecialCalendarApi:
         return post_request(url='/special-calendar/v1/calendars/', body=body.dict(by_alias=True))
 
     ...
+
+
+# Модель запроса
+class SpecCalendarRequest(BaseModel):
+    date_end: StrictStr = Field(default="9999-12-31", alias="dateEnd")
+    name: StrictStr = Field(default_factory=generate_string)
